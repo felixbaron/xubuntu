@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  xubuntu:
+    build: .
+    restart: always
+    ports:
+      - "7000:6901"
+      - "8000:5901"
+    volumes:
+      - xubuntu:/home
+    environment:
+      - VNC_RESOLUTION=2560x1440
+volumes:
+  xubuntu: {}
