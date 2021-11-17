@@ -7,12 +7,13 @@ USER root
 RUN apt-get update
 # Accept EULA for Microsoft fonts
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-RUN apt-get install -y git default-jre vim zeal zip ffmpeg python-is-python3 ttf-mscorefonts-installer
+RUN apt-get install -y git default-jre vim zeal zip ffmpeg ttf-mscorefonts-installer
 
 # Install Python
 RUN apt -y upgrade
-RUN apt install -y python3-pip
+RUN apt install -y python3-pip python-is-python3
 RUN apt install -y build-essential libssl-dev libffi-dev python3-dev
+RUN python -m pip install --upgrade pip
 
 # Install additional fonts
 RUN fc-cache -f
