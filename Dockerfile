@@ -62,5 +62,8 @@ RUN tar xzf pycharm-*.tar.gz -C /opt/pycharm
 RUN ln -s /opt/pycharm/pycharm-*/bin/pycharm.sh /usr/local/bin/pycharm
 RUN chmod a+x /opt/pycharm/pycharm-community-*/bin/pycharm.sh
 
+# Disable system sounds
+xset b off
+
 # Switch to VNC user
 USER headless
