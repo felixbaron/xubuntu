@@ -56,5 +56,11 @@ RUN apt-get install -y gconf2 gconf-service libgconf-2-4 gconf2-common libdbusme
 RUN dpkg -i FromScratch_*.deb
 RUN rm FromScratch_*.deb
 
+# Install PyCharm
+RUN wget https://download.jetbrains.com/python/pycharm-community-2021.2.3.tar.gz
+RUN tar xzf xzf pycharm-*.tar.gz -C /opt/pycharm
+RUN ln -s /opt/pycharm/pycharm-community-*/bin/pycharm.sh /usr/local/bin/pycharm
+RUN chmod a+x getopts /opt/pycharm/pycharm-community-*/bin/pycharm.sh
+
 # Switch to VNC user
 USER headless
