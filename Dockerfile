@@ -7,7 +7,7 @@ USER root
 RUN apt-get update
 # Accept EULA for Microsoft fonts
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-RUN apt-get install -y git default-jre vim zeal zip ffmpeg ttf-mscorefonts-installer
+RUN apt-get install -y git default-jre vim zeal zip ffmpeg byobu ttf-mscorefonts-installer
 
 # Install Python
 RUN apt -y upgrade
