@@ -58,6 +58,7 @@ RUN rm FromScratch_*.deb
 
 # Install PyCharm
 RUN wget https://download.jetbrains.com/python/pycharm-community-2021.2.3.tar.gz
+RUN mkdir /opt/pycharm
 RUN tar xzf pycharm-*.tar.gz -C /opt/pycharm
 RUN ln -s /opt/pycharm/pycharm-community-*/bin/pycharm.sh /usr/local/bin/pycharm
 RUN chmod a+x /opt/pycharm/pycharm-community-*/bin/pycharm.sh
