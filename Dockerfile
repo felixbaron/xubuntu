@@ -12,7 +12,7 @@ RUN apt-get install -y git default-jre vim zeal zip ffmpeg ttf-mscorefonts-insta
 # Install Python
 RUN apt -y upgrade
 RUN apt install -y python3-pip python-is-python3
-RUN apt install -y build-essential libssl-dev libffi-dev python3-dev
+RUN apt install -y build-essential libssl-dev libffi-dev libpq-dev python3-dev
 RUN python -m pip install --upgrade pip
 
 # Install additional fonts
