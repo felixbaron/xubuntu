@@ -66,5 +66,9 @@ RUN chmod a+x /opt/pycharm/pycharm-community-*/bin/pycharm.sh
 # Switch off system sounds
 xset b off
 
+# Copy home folder
+WORKDIR /home
+COPY home ./
+
 # Switch to VNC user
 USER headless
