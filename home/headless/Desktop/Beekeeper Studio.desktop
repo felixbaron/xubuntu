@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Beekeeper Studio
+Comment=An easy-to use SQL query editor and database UI for Mac, Windows, and Linux
+Exec="/opt/Beekeeper Studio/beekeeper-studio" %U --no-sandbox
+Icon=beekeeper-studio
+Path=
+Terminal=false
+StartupNotify=false

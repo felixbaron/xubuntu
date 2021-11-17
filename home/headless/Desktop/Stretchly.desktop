@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Stretchly
+Comment=The break time reminder app
+Exec=/opt/Stretchly/stretchly %U --no-sandbox
+Icon=stretchly
+Path=
+Terminal=false
+StartupNotify=false

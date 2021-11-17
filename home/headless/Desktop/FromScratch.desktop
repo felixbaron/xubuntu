@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=FromScratch
+Comment=simple autosaving scratchpad
+Exec="/opt/FromScratch/fromscratch" %U --no-sandbox
+Icon=fromscratch
+Path=
+Terminal=false
+StartupNotify=false

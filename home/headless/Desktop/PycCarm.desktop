@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=PyCharm
+Comment=
+Exec=/usr/local/bin/pycharm
+Icon=/home/headless/Images/pycharm.png
+Path=
+Terminal=false
+StartupNotify=false
