@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Byobu Terminal
+Comment=Advanced Command Line and Text Window Manager
+Exec=env TERM=xterm-256color byobu
+Icon=byobu
+Path=
+Terminal=true
+StartupNotify=false
