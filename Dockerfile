@@ -64,6 +64,11 @@ RUN tar xzf pycharm-*.tar.gz -C /opt/pycharm
 RUN ln -s /opt/pycharm/pycharm-community-*/bin/pycharm.sh /usr/local/bin/pycharm
 RUN chmod a+x /opt/pycharm/pycharm-community-*/bin/pycharm.sh
 
+# Install Discord
+RUN wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
+RUN gdebi -y discord.deb
+RUN rm discord
+
 # Switch off system sounds
 xset b off
 
