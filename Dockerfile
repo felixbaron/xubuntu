@@ -70,7 +70,7 @@ RUN gdebi -y discord.deb
 RUN rm discord
 
 # Switch off system sounds
-xset b off
+RUN xset b off
 
 # Copy home folder
 WORKDIR /home
