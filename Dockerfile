@@ -18,6 +18,11 @@ RUN python -m pip install --upgrade pip
 # Install additional fonts
 RUN fc-cache -f
 
+# Install Git Credential Manager
+RUN wget https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.567/gcmcore-linux_amd64.2.0.567.18224.deb
+RUN dpkg -i gcmcore-*.deb
+RUN rm gcmcore-*.deb
+
 # Install Docker Engine
 RUN apt-get update
 RUN apt-get install -y ca-certificates curl gnupg lsb-release
@@ -69,9 +74,6 @@ RUN apt-get install -y gdebi-core
 RUN wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
 RUN gdebi discord.deb
 RUN rm discord.deb
-
-# Switch off system sounds
-RUN #DISPLAY=:1 xset b off
 
 # Copy home folder
 WORKDIR /home
