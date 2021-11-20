@@ -9,6 +9,7 @@ xubuntu is a fork of [accetto/ubuntu-vnc-xfce-firefox-g3
 - Python
 - Stretchly
 - Byuobu
+- TigerVNC
 
 The goal is to provide the ultimate development environment out of the box.
 
