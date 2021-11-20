@@ -7,7 +7,7 @@ USER root
 RUN apt-get update
 # Accept EULA for Microsoft fonts
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-RUN apt-get install -y git default-jre vim zeal zip ffmpeg byobu ttf-mscorefonts-installer
+RUN apt-get install -y git default-jre vim zeal zip ffmpeg ttf-mscorefonts-installer
 
 # Install Python
 RUN apt -y upgrade
@@ -36,8 +36,8 @@ RUN ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
 # Install Stretchly
 RUN wget https://github.com/hovancik/stretchly/releases/download/v1.7.0/Stretchly_1.7.0_amd64.deb
-RUN apt-get install -y libxss-dev libgbm-dev libxss1 libappindicator3-1 libsecret-1-0
-RUN dpkg -i Stretchly_*.deb
+RUN #apt-get install -y libxss-dev libgbm-dev libxss1 libappindicator3-1 libsecret-1-0
+RUN #dpkg -i Stretchly_*.deb
 RUN rm Stretchly_*.deb
 
 # Install DBeaver CE
@@ -53,8 +53,8 @@ RUN apt-get install -y beekeeper-studio
 
 # Install FromScratch
 RUN wget https://github.com/Kilian/fromscratch/releases/download/v1.4.3/FromScratch_1.4.3_amd64.deb
-RUN apt-get install -y gconf2 gconf-service libgconf-2-4 gconf2-common libdbusmenu-gtk4  gconf-service-backend libappindicator1
-RUN dpkg -i FromScratch_*.deb
+RUN #apt-get install -y gconf2 gconf-service libgconf-2-4 gconf2-common libdbusmenu-gtk4 libqt5gui5 gconf-service-backend libappindicator1
+RUN #dpkg -i FromScratch_*.deb
 RUN rm FromScratch_*.deb
 
 # Install PyCharm
@@ -65,12 +65,13 @@ RUN ln -s /opt/pycharm/pycharm-community-*/bin/pycharm.sh /usr/local/bin/pycharm
 RUN chmod a+x /opt/pycharm/pycharm-community-*/bin/pycharm.sh
 
 # Install Discord
+RUN apt-get install -y gdebi-core
 RUN wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
-RUN gdebi -y discord.deb
-RUN rm discord
+RUN gdebi discord.deb
+RUN rm discord.deb
 
 # Switch off system sounds
-RUN xset b off
+RUN #DISPLAY=:1 xset b off
 
 # Copy home folder
 WORKDIR /home
