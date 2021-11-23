@@ -5,10 +5,10 @@ FROM accetto/ubuntu-vnc-xfce-firefox-g3:latest
 
 # Install packages and additional fonts
 USER root
-RUN apt-get update
 # Accept EULA for Microsoft fonts
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
-RUN apt-get install -y git default-jre vim zeal zip ffmpeg ttf-mscorefonts-installer
+RUN apt-get update
+RUN apt-get install -y git default-jre vim zeal zip ttf-mscorefonts-installer
 
 # Install Python
 RUN apt -y upgrade
@@ -40,8 +40,9 @@ RUN ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
 # Install Stretchly
 RUN wget https://github.com/hovancik/stretchly/releases/download/v1.7.0/Stretchly_1.7.0_amd64.deb
-RUN apt-get install -y libappindicator1 libxss-dev; exit 0;
-RUN apt-get -y -f install
+RUN apt-get install -y libxss-dev; exit 0;
+RUN apt-get -f install
+RUN apt-get install -y libappindicator1 libappindicator3-1 libsecret-1-0
 RUN dpkg -i Stretchly_*.deb
 RUN rm Stretchly_*.deb
 
@@ -58,8 +59,8 @@ RUN apt-get install -y beekeeper-studio
 
 # Install FromScratch
 RUN wget https://github.com/Kilian/fromscratch/releases/download/v1.4.3/FromScratch_1.4.3_amd64.deb
-RUN apt-get install -y gconf2; exit 0;
-RUN apt-get -y -f install
+RUN apt-get install -y gconf2
+RUN #apt-get -y -f install
 RUN dpkg -i FromScratch_*.deb
 RUN rm FromScratch_*.deb
 
@@ -71,10 +72,14 @@ RUN ln -s /opt/pycharm/pycharm-community-*/bin/pycharm.sh /usr/local/bin/pycharm
 RUN chmod a+x /opt/pycharm/pycharm-community-*/bin/pycharm.sh
 
 # Install Discord
-RUN apt-get install -y gdebi-core
+RUN apt-get install -y gdebi-core libc++1 libc++1-10 libc++abi1-10
 RUN wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
-RUN gdebi discord.deb
+RUN gdebi -n discord.deb
 RUN rm discord.deb
+
+# Install Boyobu
+RUN apt-get install -y byobu
+RUN byobu-enable
 
 # Copy home folder
 WORKDIR /home
